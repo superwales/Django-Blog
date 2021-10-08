@@ -1,0 +1,173 @@
+body {
+    background-color: whitesmoke;
+}
+
+.head {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 1%;
+}
+
+.top {
+    background-color: whitesmoke;
+}
+
+img {
+    height: auto;
+    width: 22%;
+    margin-left: 7%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.searchform {
+    margin-top: 2%;
+}
+
+.form-control {
+    width: 70%;
+    float: left;
+}
+
+.btn {
+    width: 15%;
+    color: #979797;
+    border-color: #c2c2c2;
+    background-color: #f3f3f3;
+    margin-left: 1%;
+}
+
+
+.navbar {
+    margin-left: 0;
+    margin-right: 0;
+    background-color: #a0a0a0;
+}
+
+/* .brand {
+    background-color: red;
+} */
+
+.collapse {
+    background-color:#919191;
+    padding-left: 4%;
+}
+
+.nav-link {
+    color: white;
+}
+
+.main {
+    margin: 0,0,0,0;
+}
+
+.main-row {
+    margin-left: 2%;
+    margin-right: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.post-list {
+    background-color: white;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    margin-right: 1%;
+}
+
+.page {
+    margin-left: 45%;
+}
+
+.card {
+    margin-left: 1%;
+    margin-right: 1%;
+    background-color:#f4f4f4
+}
+
+.card-body {
+    background-color: #f4f4f4;
+    padding-left: 3%;
+}
+
+.category {
+    padding-left: 5%;
+}
+
+.catecard {
+    background-color: #e8e8e8;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.sidebar1 {
+    background-color: white;
+    margin-left: 2%;
+    padding-top: 1%;
+}
+
+.sidebar {
+    margin-top: 1%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.post {
+    margin-bottom: 15px;
+}
+
+.footerdoc {
+    text-align: center;
+    font-size: small;
+    margin-top: 0;
+    margin-bottom: 1%;
+}
+
+a:link  {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited  {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: slategray;
+    text-decoration: underline;
+}
+
+.card-link {
+    font-size: small;
+    color: #7a7a7a;
+}
+
+.card-text {
+    font-size: smaller;
+    margin-top: 1%;
+}
+
+.ps {
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: smaller;
+}
+
+.psp {
+    margin-top: 1%;
+    margin-bottom: 2%;
+    color: #4a4a4a;
+}
+
+.sidepost {
+    margin-left: 2%;
+}

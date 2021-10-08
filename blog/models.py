@@ -1,3 +1,4 @@
+from typing import cast
 import mistune
 from operator import mod
 from django.db.models import query
@@ -40,6 +41,7 @@ class Category(models.Model):
         nav_categories = categories.filter(is_nav=True)
         normal_categories = categories.filter(is_nav=False)
         return {
+            'allcates': categories,
             'nav': nav_categories,
             'categories': normal_categories,
         }

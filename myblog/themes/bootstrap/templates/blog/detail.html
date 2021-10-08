@@ -16,7 +16,7 @@
     {% if post %}
     <h1>{{ post.title }}</h1>
     <div>
-        <span>作者：{{ post.owner.username }}</span>
+        <span style="margin-right: 5%;">作者：{{ post.owner.username }}</span>
         <span>分类：{{ post.category.name }}</span>
     </div>
     <hr/>
@@ -26,5 +26,5 @@
     <!-- <p>{{ post.content }}</p> -->
     {% endif %}
 
-{% comment_block request.path %}
+<!-- {% comment_block request.path %} -->
 {% endblock %}

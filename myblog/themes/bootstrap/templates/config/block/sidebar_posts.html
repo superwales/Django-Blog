@@ -1,7 +1,7 @@
 <ul>
     {% for post in posts %}
-    <li>
-        <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+    <li class="sidepost">
+        <a href="{% url 'post_detail' post.id %}" style="font-size:smaller;color: #4a4a4a;">{{ post.title }}</a>
     </li>
     {% endfor %}
 </ul>

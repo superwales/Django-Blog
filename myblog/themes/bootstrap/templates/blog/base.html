@@ -1,70 +1,84 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8"/>
         <!-- <title>NWGG博客</title> -->
         <title>{% block title %}{% endblock %}----NWGG博客</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=0">
+        <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.css"> -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nwgg.css' %}">
         {% block extra_head %}
         {% endblock %}
-        <style>
-            .post{
-                margin-bottom: 5px;
-            }
-            .head1 {
-                background-color: red;
-            }
-        </style>
     </head>
-    <body style="background-color: bisque;">
-        <div class="head1" style="margin-bottom: 1%;">
-            <div class="container-fluid head" style="background-color:blanchedalmond;">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="{% url 'index' %}">首页</a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        {% for cate in nav %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'category_list' cate.id %}">{{ cate.name }}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
+    <body>
+        <div class="container-fluid head">
+            <div class="row top">
+                <div class="col-8">
+                    <img src="{% static 'pics/NWGG.png' %}" alt="Something Wrong">
+                </div>
+                <div class="col-4 searchform">
                     <form class="form-inline my-2 my-lg-0" action="/search/" method="GET">
                         <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="Search" aria-label="Search" value="{{ keyword }}">
                         <button class="btn btn-outline-success" type="submit">搜索</button>
                     </form>
                 </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <!-- <a class="navbar-brand" href="{% url 'index' %}">首页</a> -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item brand">
+                                <a class="nav-link" href="{% url 'index' %}" style="color: white;">首页</a>
+                            </li>
+                            {% for cate in nav %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'category_list' cate.id %}"  style="color:white;">{{ cate.name }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                </div>
             </nav>
-            <!-- <div class="jumbotron">
-                <h1 class="display-4">NWGG</h1>
-                <p class="lead">基于Django的单人博客系统</p>
-            </div> -->
-        </div>
         </div>
         
-        <div class="container-fluid main" style="background-color:blanchedalmond; margin: 0,0,0,0;">
-            <div class="row" style="padding-left: 5%; padding-right: 5%;">
-                <div class="col-9 post-list">
+        <div class="container-fluid main">
+            <div class="main-row row">
+                <div class="col-8 post-list">
                     {% block main %}
                     {% endblock %}
                 </div>
-                <div class="col-3">
-                    <div class="card">
-                        <p>
-                            个人资料区域
-                        </p>
-                    </div>
-                    {% block sidebar %}
-                    {% for sidebar in sidebars %}
-                    <div class="card sidebar">
-                        <div class="card-body">
-                            <h4 class="card-title">{{ sidebar.title }}</h4>
+                <div class="col-3 sidebar1">
+                    <!-- <div class="card sidebar"> -->
+                        <div class="card-body" style="padding-left: 0; padding-right: 0;padding-top:0;margin-left: 5%;margin-right: 5%;">
+                            <h4 class="card-title" style="background-color: #cecece;margin: 0,0,0,0;padding-left: 5%;padding-right: 5%;padding-top: 1%;padding-bottom: 1%;">
+                                <a href="{% static 'files/PR.pdf' %}">个人简历</a>
+                            </h4>
+                            <span class="ps">
+                                <p class="psp">从清华国防生到复员军官</p>
+                                <p class="psp">上过舰艇，放过卫星</p>
+                                <p class="psp">专注互联网技术</p>
+                                <p class="psp">日积跬步，学无止境</p>
+                            </span>
+                            {% block sidebar %}
+                            {% for sidebar in sidebars %}
+                            <h4 class="card-title" style="background-color: #cecece;margin: 0,0,0,0;padding-left: 5%;padding-right: 5%;padding-top: 1%;padding-bottom: 1%;">{{ sidebar.title }}</h4>
                             <p>{{ sidebar.content_html }}</p>
+                            {% endfor %}
+                            {% endblock %}
+                            <h4 class="card-title" style="background-color: #cecece;margin: 0,0,0,0;padding-left: 5%;padding-right: 5%;padding-top: 1%;padding-bottom: 1%;">全部分类</h4>
+                            <p>
+                                <nav class="nav category">
+                                    {% for cate in allcates %}
+                                    <div class="catecard">
+                                        <a href="{% url 'category_list' cate.id %}">{{ cate.name }}</a>
+                                    </div>
+                                    {% endfor %}
+                                </nav>
+                            </p>
                         </div>
-                    </div>
-                    {% endfor %}
-                    {% endblock %}
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
@@ -72,11 +86,7 @@
             {% block footer %}
             <div class="container-fluid">
                 <hr/>
-                <nav class="nav category">
-                    {% for cate in categories %}
-                    <a href="{% url 'category_list' cate.id %}" class="nav-link">{{ cate.name }}</a>
-                    {% endfor %}
-                </nav>
+                <p class="footerdoc">Copyright@2021-2022 NWGG 备案号：京ICP备2021027854号-1</p>
             </div>
             {% endblock %}
         </footer>

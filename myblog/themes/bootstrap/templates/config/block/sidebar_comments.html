@@ -1,8 +1,8 @@
 <ul>
     {% autoescape off %}
     {% for comment in comments %}
-    <li>
-        {{ comment.nickname }}:<a href="{{ comment.target }}">{{ comment.targetname }}</a>
+    <li style="font-size: smaller; color: #4a4a4a; margin-left: 2%;">
+        {{ comment.nickname }}:<a href="{{ comment.target }}"  style="color: #4a4a4a;">{{ comment.targetname }}</a>
         {{ comment.content }}
     </li>
     {% endfor %}

@@ -15,13 +15,13 @@ class CommentForm(forms.ModelForm):
             attrs={'class': 'form-control', 'style': "width: 40%;"}
         )
     )
-    email = forms.CharField(
-        label='Email',
-        max_length=50,
-        widget=forms.widgets.EmailInput(
-            attrs={'class': 'form-control', 'style': "width: 40%;"}
-        )
-    )
+    # email = forms.CharField(
+    #     label='Email',
+    #     max_length=50,
+    #     widget=forms.widgets.EmailInput(
+    #         attrs={'class': 'form-control', 'style': "width: 20%;"}
+    #     )
+    # )
     content = forms.CharField(
         label='内容',
         max_length=500,
@@ -39,4 +39,4 @@ class CommentForm(forms.ModelForm):
     
     class Meta:
         model = Comment
-        fields = ['nickname', 'email','content']
+        fields = ['nickname','content']

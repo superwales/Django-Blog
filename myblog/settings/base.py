@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-ul%ig7*d&+w+))n#8)n8(r!a2pk!i_27zny1ot)+t-wto^0a2h
 
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['121.5.7.231', 'www.nwgg.xyz']
 
 
 # Application definition
@@ -111,7 +111,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT  = '/tmp/static'
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'themes',THEME,"static"),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
